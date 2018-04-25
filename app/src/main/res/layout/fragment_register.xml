@@ -1,21 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <!--content-->
+    <!--Toolbar-->
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <!--Content-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:orientation="vertical"
         android:padding="15dp">
-        <!--Logo-->
-        <ImageView
-            android:layout_width="wrap_content"
+
+        <!--Name-->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo" />
+            android:orientation="horizontal">
+
+            <!--Icon-->
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_action_name" />
+
+
+            <!--Textfield-->
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name :"
+                android:inputType="text" />
+
+        </LinearLayout>
 
         <!--User-->
         <LinearLayout
@@ -63,27 +89,8 @@
 
         </LinearLayout>
 
-        <!--Login Button-->
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="login" />
-
-        <!--Register-->
-        <TextView
-            android:id="@+id/txtRegister"
-            android:clickable="true"
-            android:textColor="@color/colorAccent"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center_horizontal"
-            android:textStyle="italic"
-            android:textSize="18sp"
-            android:text="New Register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
 
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
