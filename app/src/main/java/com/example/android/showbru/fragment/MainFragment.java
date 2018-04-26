@@ -92,6 +92,12 @@ public class MainFragment extends Fragment {
                         } else if (passwordString.equals(truePass)) {
                             Toast.makeText(getActivity(),"Welcome " + nameUser, Toast.LENGTH_SHORT).show();
 
+                            getActivity().getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.contentMainFragment, new ServiceFragment())
+                                    .commit();
+
+
                         } else {
                             myAlert.normalDialog("False", "wrong Pass");
 
