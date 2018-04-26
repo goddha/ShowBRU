@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.android.showbru.R;
+import com.example.android.showbru.utility.GetAllData;
 import com.example.android.showbru.utility.MyAlert;
+import com.example.android.showbru.utility.MyConstant;
 
 public class MainFragment extends Fragment {
 
@@ -47,6 +50,25 @@ public class MainFragment extends Fragment {
                     myAlert.normalDialog("Have Space", "Please Fill Every Blanks");
 
                 } else {
+//                    No Space
+
+                    MyConstant myConstant = new MyConstant();
+                    boolean b = true;
+                    String truePass, nameUser;
+
+                    try {
+
+                        GetAllData getAllData = new GetAllData(getActivity());
+                        getAllData.execute(myConstant.getUrlGetAllUser());
+
+                        String jsonString = getAllData.get();
+                        Log.d("26AprilV1", "JSON ===>" + jsonString);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+//                    if
+
                 }
             }
         });
