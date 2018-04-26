@@ -17,6 +17,8 @@ import com.example.android.showbru.utility.GetAllData;
 import com.example.android.showbru.utility.MyAlert;
 import com.example.android.showbru.utility.MyConstant;
 
+import org.json.JSONArray;
+
 public class MainFragment extends Fragment {
 
 
@@ -63,6 +65,10 @@ public class MainFragment extends Fragment {
 
                         String jsonString = getAllData.get();
                         Log.d("26AprilV1", "JSON ===>" + jsonString);
+
+                        JSONArray jsonArray = new JSONArray(jsonString);
+
+
 
                     } catch (Exception e) {
                         e.printStackTrace();
