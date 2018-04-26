@@ -18,6 +18,7 @@ import com.example.android.showbru.utility.MyAlert;
 import com.example.android.showbru.utility.MyConstant;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class MainFragment extends Fragment {
 
@@ -57,6 +58,7 @@ public class MainFragment extends Fragment {
                     MyConstant myConstant = new MyConstant();
                     boolean b = true;
                     String truePass, nameUser;
+                    MyAlert myAlert = new MyAlert(getActivity());
 
                     try {
 
@@ -67,6 +69,26 @@ public class MainFragment extends Fragment {
                         Log.d("26AprilV1", "JSON ===>" + jsonString);
 
                         JSONArray jsonArray = new JSONArray(jsonString);
+
+                        for (int i=0; i<jsonArray.length(); i+=1) {
+
+                            JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                            if (userString.equals(jsonObject.getString("User"))) {
+
+                                b = false;
+                                truePass = jsonObject.getString("Password");
+                                nameUser = jsonObject.getString("Name");
+
+                            }
+
+                        }
+
+                        if (b) {
+
+                            myAlert.normalDialog("User False", "not in Database");
+
+                        }
 
 
 
