@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import com.example.android.showbru.MainActivity;
 import com.example.android.showbru.R;
+import com.example.android.showbru.utility.MyAlert;
 
 public class RegisterFragment extends Fragment {
 
@@ -36,6 +37,8 @@ public class RegisterFragment extends Fragment {
             return true;
 
         }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void uploadValueToServer() {
@@ -51,8 +54,10 @@ public class RegisterFragment extends Fragment {
 
 //        Check Space
 
-        if (nameString.isEmpty() || userString.isEmpty() || passwordString.isEmpty()) // false or false or false /have space {
-        } else // no space {
+        if (nameString.isEmpty() || userString.isEmpty() || passwordString.isEmpty()) {
+            MyAlert myAlert = new MyAlert(getActivity());
+            myAlert.normalDialog("Have Space", "Please Fill All Blanks");
+        } else {
 
 
         }
