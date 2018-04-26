@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.android.showbru.R;
 import com.example.android.showbru.utility.GetAllData;
@@ -57,7 +58,7 @@ public class MainFragment extends Fragment {
 
                     MyConstant myConstant = new MyConstant();
                     boolean b = true;
-                    String truePass, nameUser;
+                    String truePass = null, nameUser = null;
                     MyAlert myAlert = new MyAlert(getActivity());
 
                     try {
@@ -86,7 +87,13 @@ public class MainFragment extends Fragment {
 
                         if (b) {
 
-                            myAlert.normalDialog("User False", "not in Database");
+                            myAlert.normalDialog("User False", "no match in Database");
+
+                        } else if (passwordString.equals(truePass)) {
+                            Toast.makeText(getActivity(),"Welcome " + nameUser, Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            myAlert.normalDialog("False", "wrong Pass");
 
                         }
 
